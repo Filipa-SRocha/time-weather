@@ -1,14 +1,3 @@
-customUrl =
-	'http://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&APPID=71c26ea185359ddc31e7c229cd0eb1ba';
-
-function currentTime() {
-	let date = new Date();
-	console.log(date.getUTCHours());
-	console.log(date.getUTCMinutes());
-	console.log(date.getUTCSeconds());
-	return date.getUTCHours();
-}
-
 function getData(customUrl, city) {
 	fetch(customUrl, { mode: 'cors' })
 		.then(function (response) {
@@ -16,7 +5,23 @@ function getData(customUrl, city) {
 		})
 		.then(function (response) {
 			display(response, city);
+		})
+		.catch((err) => {
+			const displayArea = document.querySelector('#current-city' + city);
+			clear(city);
+			displayArea.textContent =
+				'Uh Oh, City not found. Please try again with: city name, country name!';
+			displayArea.style.fontSize = '20px';
 		});
+}
+
+function clear(city) {
+	document.querySelector('#degrees' + city).textContent = '';
+	document.querySelector('#min' + city).textContent = '';
+	document.querySelector('#max' + city).textContent = '';
+	document.querySelector('#real' + city).textContent = '';
+	document.querySelector('#current-city' + city).textContent = '';
+	document.querySelector('#current-time' + city).textContent = '';
 }
 
 function display(dataCollected, city) {
@@ -27,7 +32,6 @@ function display(dataCollected, city) {
 	const currentCity = document.querySelector('#current-city' + city);
 	const currentTime = document.querySelector('#current-time' + city);
 
-	console.log(dataCollected);
 	temp.textContent = Math.round(dataCollected.main.temp) + 'º';
 	minTemp.textContent = 'Min: ' + Math.round(dataCollected.main.temp_min) + 'º';
 	maxTemp.textContent = 'Max: ' + Math.round(dataCollected.main.temp_max) + 'º';
@@ -40,9 +44,6 @@ function display(dataCollected, city) {
 	if (min < 10) min = '0' + min;
 	currentTime.textContent = hours + dataCollected.timezone / 3600 + ':' + min;
 }
-
-getData(getUrl('Lisbon'), '1');
-getData(getUrl('porto'), '2');
 
 const searchBtn = document.querySelectorAll('.city-search-btn');
 searchBtn.forEach((btn) =>
@@ -68,10 +69,13 @@ function getUrl(city) {
 }
 
 function secretMode() {
-	let displayArea = document.querySelector('#duo-display');
+	const displayArea = document.querySelector('#duo-display');
 	displayArea.style.backgroundImage = 'url(heartLineMiddle.png)';
 	let j = getUrl('bacabal, br');
 	let f = getUrl('porto, pt');
 	getData(j, '1');
 	getData(f, '2');
 }
+
+getData(getUrl('Paris'), '1');
+getData(getUrl('Lisbon'), '2');
