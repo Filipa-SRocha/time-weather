@@ -61,7 +61,7 @@ searchBtn.forEach((btn) =>
 
 function getUrl(city) {
 	url =
-		'http://api.openweathermap.org/data/2.5/weather?q=' +
+		'https://api.openweathermap.org/data/2.5/weather?q=' +
 		city +
 		'&units=metric&APPID=71c26ea185359ddc31e7c229cd0eb1ba';
 
