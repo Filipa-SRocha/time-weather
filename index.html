@@ -4,11 +4,60 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Amatic SC"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		/>
+
+		<link rel="stylesheet" href="./reset.css" />
 		<link rel="stylesheet" href="./index.css" />
 		<title>Shorting the Distance</title>
 	</head>
 	<body>
 		<h1>How is it over there?</h1>
+		<div id="duo-display">
+			<div id="my-city-div">
+				<form id="1">
+					<input type="text" placeholder="Your city" id="input1" />
+					<button type="submit" class="city-search-btn" id="1">
+						<i class="material-icons">search</i>
+					</button>
+				</form>
+
+				<div class="one-display">
+					<p id="current-city1" class="current-city"></p>
+					<p id="current-time1"></p>
+					<h2 id="degrees1" class="degrees"></h2>
+					<div class="other-info">
+						<p id="max1"></p>
+						<p id="min1"></p>
+						<p id="real1"></p>
+					</div>
+				</div>
+			</div>
+			<div id="their-city-div">
+				<form id="2">
+					<input type="text" placeholder="Theirs city" id="input2" />
+					<button type="submit" class="city-search-btn" id="2">
+						<i class="material-icons">search</i>
+					</button>
+				</form>
+				<div class="one-display">
+					<p id="current-city2" class="current-city"></p>
+					<p id="current-time2"></p>
+					<h2 id="degrees2" class="degrees"></h2>
+					<div class="other-info">
+						<p id="max2"></p>
+						<p id="min2"></p>
+						<p id="real2"></p>
+					</div>
+				</div>
+			</div>
+		</div>
 		<script src="./main.js"></script>
 	</body>
 </html>

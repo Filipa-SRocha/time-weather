@@ -1,3 +1,81 @@
 body {
-	background: pink;
+	background: #778899;
+	font-family: 'Amatic SC';
+}
+h2 {
+	font-size: 110px;
+}
+p {
+	margin: 1px;
+	font-size: 30px;
+}
+
+h1 {
+	font-size: 60px;
+	text-align: center;
+	height: 150px;
+}
+
+input {
+	background: transparent;
+	padding: 0px 10px;
+	border: 1px solid #5a6774;
+	border-radius: 30px;
+	color: black;
+	font-size: 20px;
+	margin-left: 150px;
+}
+input:focus {
+	outline: none;
+}
+::placeholder {
+	color: yellow;
+}
+
+.city-search-btn {
+	background: transparent;
+	border: none;
+	color: yellow;
+	position: relative;
+	top: 4px;
+	right: 37px;
+}
+
+#duo-display {
+	background-image: none;
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+}
+
+.one-display {
+	font-family: 'Amatic SC';
+	display: grid;
+	grid-template-rows: 1fr 4fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+		'city city'
+		'degrees info';
+	width: 250px;
+	height: fit-content;
+	margin: 30px 50px;
+}
+
+.degrees {
+	grid-area: degrees;
+}
+
+.current-city {
+	grid-area: city;
+}
+
+.other-info {
+	grid-area: info;
+	margin-left: 10px;
+	height: 130px;
+	justify-self: left;
+	align-self: center;
 }
