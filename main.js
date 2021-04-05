@@ -47,9 +47,9 @@ function display(dataCollected, city) {
 
 const searchBtn = document.querySelectorAll('.city-search-btn');
 searchBtn.forEach((btn) =>
-	btn.addEventListener('click', (e) => {
+	btn.addEventListener('click', function (e) {
 		e.preventDefault();
-		cityNumber = e.path[1].id;
+		cityNumber = this.id;
 		const city = document.querySelector('#input' + cityNumber).value;
 		if (city.toLowerCase() == 'julipa') {
 			secretMode();
